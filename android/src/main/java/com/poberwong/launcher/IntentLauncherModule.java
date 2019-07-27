@@ -53,15 +53,16 @@ public class IntentLauncherModule extends ReactContextBaseJavaModule implements 
         this.promise = promise;
         Intent intent = new Intent();
 
-        if (params.hasKey(ATTR_CLASS_NAME)) {
-            ComponentName cn;
+//        if (params.hasKey(ATTR_CLASS_NAME)) {
+//            ComponentName cn;
             if (params.hasKey(ATTR_PACKAGE_NAME)) {
-                cn = new ComponentName(params.getString(ATTR_PACKAGE_NAME), params.getString(ATTR_CLASS_NAME));
-            } else {
-                cn = new ComponentName(getReactApplicationContext(), params.getString(ATTR_CLASS_NAME));
+                intent.setPackage(params.getString(ATTR_PACKAGE_NAME));
+//                cn = new ComponentName(params.getString(ATTR_PACKAGE_NAME), params.getString(ATTR_CLASS_NAME));
+//            } else {
+//                cn = new ComponentName(getReactApplicationContext(), params.getString(ATTR_CLASS_NAME));
             }
-            intent.setComponent(cn);
-        }
+//            intent.setComponent(cn);
+//        }
         if (params.hasKey(ATTR_ACTION)) {
             intent.setAction(params.getString(ATTR_ACTION));
         }
