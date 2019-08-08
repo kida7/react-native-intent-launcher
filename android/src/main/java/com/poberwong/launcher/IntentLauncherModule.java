@@ -101,6 +101,8 @@ public class IntentLauncherModule extends ReactContextBaseJavaModule implements 
         promise.resolve(true);
     }
 
+
+
     @ReactMethod
     public void startAppByPackageName(String packageName, final Promise promise) {
         if (packageName != null) {
@@ -115,6 +117,15 @@ public class IntentLauncherModule extends ReactContextBaseJavaModule implements 
             }
         }
         promise.reject("package name missing");
+    }
+
+    @ReactMethod
+    public void closeActivityWithResult(String data){
+        Intent intent = new Intent();
+        intent.putExtra("data",data);
+        Activity activity = getCurrentActivity();
+        activity.setResult(Activity.RESULT_CANCELED,intent);
+        activity.finish();
     }
 
     @Override
@@ -143,4 +154,6 @@ public class IntentLauncherModule extends ReactContextBaseJavaModule implements 
 
         this.promise.resolve(params);
     }
+
+
 }

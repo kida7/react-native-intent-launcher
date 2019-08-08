@@ -17,7 +17,8 @@ declare module 'react-native-intent-launcher' {
     namespace IntentLauncher {
         export function startActivity(params: ActivityParams): Promise<AcitvityResult>
         export function startAppByPackageName(packageName: string): Promise<boolean>
-        export function isAppInstalled(packageName: string): Promise<boolean>
+        export function isAppInstalled(packageName: string): Promise<boolean>//closeActivityWithResult
+        export function closeActivityWithResult(data: string): Promise<boolean>//closeActivityWithResult
     }
     export = IntentLauncher
 }
