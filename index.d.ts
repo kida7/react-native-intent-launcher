@@ -12,7 +12,9 @@ declare module 'react-native-intent-launcher' {
     type AcitvityResult = {
         resultCode: number
         data: string,
-        extra: any
+        extra: {
+            action: 'tracking' | 'continue'
+        }
     };
     namespace IntentLauncher {
         export function startActivity(params: ActivityParams): Promise<AcitvityResult>

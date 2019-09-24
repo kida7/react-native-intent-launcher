@@ -30,8 +30,10 @@ public class IntentLauncherModule extends ReactContextBaseJavaModule implements 
     private static final String ATTR_PACKAGE_NAME = "packageName";
     private static final String ATTR_CLASS_NAME = "className";
     Promise promise;
-    ReactApplicationContext reactContext;
-
+    static ReactApplicationContext reactContext;
+    public static ReactApplicationContext getReactContext(){
+        return reactContext;
+    }
     public IntentLauncherModule(ReactApplicationContext reactContext) {
         super(reactContext);
         this.reactContext = reactContext;
